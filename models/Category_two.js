@@ -30,6 +30,63 @@ class Category_two {
       });
     });
   };
+
+  update = () => {
+    this.query =
+      " UPDATE category_two SET name = ' " +
+      this.name +
+      "', description = '" +
+      this.description +
+      "', form = '" +
+      this.form +
+      "' WHERE id = " +
+      this.id;
+
+    return new Promise((resolve, reject) => {
+      this.db.query(this.query, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    });
+  };
+
+  getList = () => {
+    this.query = "SELECT * FROM category_two ORDER BY id";
+    return new Promise((resolve, reject) => {
+      this.db.query(this.query, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    });
+  };
+
+  getListbyid = () => {
+    this.query = "SELECT * FROM category_two WHERE id = " + this.id;
+    return new Promise((resolve, reject) => {
+      this.db.query(this.query, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    });
+  };
+
+  delete = () => {
+    this.query = "DELETE FROM category_two WHERE id = " + this.id;
+    return new Promise((resolve, reject) => {
+      this.db.query(this.query, (err, result) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(result);
+      });
+    });
+  };
 }
 
 module.exports = Category_two;

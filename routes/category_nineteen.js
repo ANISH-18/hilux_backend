@@ -2,15 +2,15 @@ var express = require("express");
 
 var router = express.Router();
 
-var Category_one = require("../models/Category_one");
+var Category_nineteen = require("../models/Category_nineteen");
 
 router.post("/", (req, res) => {
   let body = req.body;
-  let category_one = new Category_one();
-  category_one.name = body.name;
-  category_one.description = body.description;
-  category_one.form = body.form;
-  category_one.save().then(
+  let category_nineteen = new Category_nineteen();
+  category_nineteen.name = body.name;
+  category_nineteen.description = body.description;
+  category_nineteen.form = body.form;
+  category_nineteen.save().then(
     (result) => {
       res.end(JSON.stringify({ status: "success", data: result }));
     },
@@ -21,8 +21,8 @@ router.post("/", (req, res) => {
 });
 
 router.get("/", (req, res) => {
-  let category_one = new Category_one();
-  category_one.getList().then(
+  let category_nineteen = new Category_nineteen();
+  category_nineteen.getList().then(
     (result) => {
       res.end(JSON.stringify({ status: "success", data: result }));
     },
@@ -33,9 +33,9 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  let category_one = new Category_one();
-  category_one.id = req.params.id;
-  category_one.getListbyid().then(
+  let category_nineteen = new Category_nineteen();
+  category_nineteen.id = req.params.id;
+  category_nineteen.getListbyid().then(
     (result) => {
       res.end(JSON.stringify({ status: "success", data: result }));
     },
@@ -48,13 +48,13 @@ router.get("/:id", (req, res) => {
 
 router.put("/:id", (req, res) => {
   let body = req.body;
-  let category_one = new Category_one();
-  //   category_one.id = body.id;
-  category_one.id = req.params.id;
-  category_one.name = body.name;
-  category_one.description = body.description;
-  category_one.form = body.form;
-  category_one.update().then(
+  let category_nineteen = new Category_nineteen();
+  //   category_nineteen.id = body.id;
+  category_nineteen.id = req.params.id;
+  category_nineteen.name = body.name;
+  category_nineteen.description = body.description;
+  category_nineteen.form = body.form;
+  category_nineteen.update().then(
     (result) => {
       res.end(JSON.stringify({ status: "success", data: result }));
     },
@@ -66,9 +66,9 @@ router.put("/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
-  let category_one = new Category_one();
-  category_one.id = req.params.id;
-  category_one.delete().then(
+  let category_nineteen = new Category_nineteen();
+  category_nineteen.id = req.params.id;
+  category_nineteen.delete().then(
     (result) => {
       res.end(JSON.stringify({ status: "success", data: result }));
     },

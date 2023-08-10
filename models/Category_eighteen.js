@@ -1,6 +1,6 @@
 var Database = require("./Database");
 
-class Category_one {
+class Category_eighteen {
   constructor() {
     this.id = 0;
     this.name = "";
@@ -11,7 +11,7 @@ class Category_one {
   }
 
   save = () => {
-    this.query = "INSERT INTO category_one(name, description, form) ";
+    this.query = "INSERT INTO category_eighteen(name, description, form) ";
     this.query +=
       "VALUES('" +
       this.name +
@@ -32,7 +32,7 @@ class Category_one {
 
   update = () => {
     this.query =
-      "UPDATE category_one SET name = ' " +
+      "UPDATE category_eighteen SET name = ' " +
       this.name +
       "', description = '" +
       this.description +
@@ -51,7 +51,7 @@ class Category_one {
   };
 
   getList = () => {
-    this.query = "SELECT * FROM category_one ORDER BY id";
+    this.query = "SELECT * FROM category_eighteen ORDER BY name";
     return new Promise((resolve, reject) => {
       this.db.query(this.query, (err, result) => {
         if (err) {
@@ -63,7 +63,7 @@ class Category_one {
   };
 
   getListbyid = () => {
-    this.query = "SELECT * FROM category_one WHERE id = " + this.id;
+    this.query = "SELECT * FROM category_eighteen WHERE id = " + this.id;
     return new Promise((resolve, reject) => {
       this.db.query(this.query, (err, result) => {
         if (err) {
@@ -75,7 +75,7 @@ class Category_one {
   };
 
   delete = () => {
-    this.query = "DELETE FROM category_one WHERE id = " + this.id;
+    this.query = "DELETE FROM category_eighteen WHERE id = " + this.id;
     return new Promise((resolve, reject) => {
       this.db.query(this.query, (err, result) => {
         if (err) {
@@ -87,4 +87,4 @@ class Category_one {
   };
 }
 
-module.exports = Category_one;
+module.exports = Category_eighteen;
